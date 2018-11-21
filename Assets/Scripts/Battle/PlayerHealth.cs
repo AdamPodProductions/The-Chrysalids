@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
 
     public AudioClip damageClip;
 
+    public float invincibilityTime = 1.5f;
     private bool invincible;
 
     private SpriteRenderer spriteRenderer;
@@ -29,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
         invincible = true;
         spriteRenderer.color = Color.gray;
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(invincibilityTime);
 
         invincible = false;
         spriteRenderer.color = Color.white;
