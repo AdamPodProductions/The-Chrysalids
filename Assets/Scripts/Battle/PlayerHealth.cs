@@ -11,13 +11,17 @@ public class PlayerHealth : MonoBehaviour
     public Image healthImg;
     public Text healthAmount;
 
+    public AudioClip damageClip;
+
     private bool invincible;
 
     private SpriteRenderer spriteRenderer;
+    private AudioSource audioSource;
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private IEnumerator Invincibility()
@@ -49,6 +53,7 @@ public class PlayerHealth : MonoBehaviour
         if (!invincible)
         {
             SetHealth(health - damage);
+            audioSource.PlayOneShot(damageClip);
             StartCoroutine(Invincibility());
         }
     }
