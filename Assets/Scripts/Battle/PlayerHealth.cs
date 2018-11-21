@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -14,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip damageClip;
 
     public float invincibilityTime = 1.5f;
+
     private bool invincible;
 
     private SpriteRenderer spriteRenderer;
@@ -45,7 +45,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameManager.instance.GameOver();
         }
     }
 
@@ -54,8 +54,12 @@ public class PlayerHealth : MonoBehaviour
         if (!invincible)
         {
             SetHealth(health - damage);
-            audioSource.PlayOneShot(damageClip);
-            StartCoroutine(Invincibility());
+
+            if (health > 0)
+            {
+                audioSource.PlayOneShot(damageClip);
+                StartCoroutine(Invincibility());
+            }
         }
     }
 }
