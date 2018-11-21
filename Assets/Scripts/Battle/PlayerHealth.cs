@@ -11,6 +11,26 @@ public class PlayerHealth : MonoBehaviour
     public Image healthImg;
     public Text healthAmount;
 
+    private bool invincible;
+
+    private SpriteRenderer spriteRenderer;
+
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private IEnumerator Invincibility()
+    {
+        invincible = true;
+        spriteRenderer.color = Color.gray;
+
+        yield return new WaitForSeconds(1.5f);
+
+        invincible = false;
+        spriteRenderer.color = Color.white;
+    }
+
     public void SetHealth(int health)
     {
         this.health = health;
@@ -26,6 +46,10 @@ public class PlayerHealth : MonoBehaviour
 
     public void Damage(int damage)
     {
-        SetHealth(health - damage);
+        if (!invincible)
+        {
+            SetHealth(health - damage);
+            StartCoroutine(Invincibility());
+        }
     }
 }
