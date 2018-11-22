@@ -1618,7 +1618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23add6856ec58ec49bcc1b7f3b377fb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
   damageAnim: {fileID: 1231394425345602, guid: 4d02ef7ab8ceae04690d3351de5571a8, type: 2}
 --- !u!1 &1296509820
 GameObject:
