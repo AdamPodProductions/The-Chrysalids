@@ -29,7 +29,7 @@ public class AttackBar : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 ToggleMovement(false);
-                GameManager.instance.playerDamage.damage = GetDamageFromPosition();
+                BattleManager.instance.playerDamage.damage = GetDamageFromPosition();
                 Instantiate(damageAnim, Vector2.up * 3, Quaternion.identity);
             }
         }

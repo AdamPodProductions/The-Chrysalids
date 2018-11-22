@@ -14,12 +14,13 @@ public class EnemyHealthUI : MonoBehaviour
     {
         ui.SetActive(true);
         damageText.text = damage.ToString();
-        healthImg.fillAmount = (GameManager.instance.enemyHealth.health / GameManager.instance.enemyHealth.maxHealth) * 1.0f;
+        healthImg.fillAmount = (BattleManager.instance.enemyHealth.health / BattleManager.instance.enemyHealth.maxHealth) * 1.0f;
 
         yield return new WaitForSeconds(1);
 
         ui.SetActive(false);
-        GameManager.instance.ToggleFight(false);
+        BattleManager.instance.ToggleFight(false);
+        BattleManager.instance.TogglePlayerMovement(true);
     }
 
     public void UpdateUI(int damage)

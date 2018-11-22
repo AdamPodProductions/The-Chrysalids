@@ -6,6 +6,6 @@ public class DamageAnim : MonoBehaviour
 {
     public void AttackEnemy()
     {
-        GameManager.instance.playerDamage.DamageEnemy();
+        BattleManager.instance.playerDamage.DamageEnemy();
     }
 }

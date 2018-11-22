@@ -583,7 +583,7 @@ GameObject:
   - component: {fileID: 443995243}
   - component: {fileID: 443995244}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: BattleManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -619,7 +619,10 @@ MonoBehaviour:
   attackBar: {fileID: 1213171192}
   battleObj: {fileID: 2042609739}
   gameOver: {fileID: 233000454}
+  battleOptions: {fileID: 1296509820}
   fight: {fileID: 1199815710}
+  playerMovement: {fileID: 1426069764}
+  playerHealthUI: {fileID: 2085682096}
 --- !u!1 &595642750
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,8 +885,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 1.25, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2042609740}
-  m_RootOrder: 1
+  m_Father: {fileID: 1426069765}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &689968129
 BoxCollider2D:
@@ -1045,7 +1048,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2042609740}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &728488649
 GameObject:
@@ -1132,6 +1135,28 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2085682096}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 234549333}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -1375,8 +1400,6 @@ GameObject:
   - component: {fileID: 1020639017}
   - component: {fileID: 1020639021}
   - component: {fileID: 1020639019}
-  - component: {fileID: 1020639020}
-  - component: {fileID: 1020639022}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1440,8 +1463,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
-  m_Father: {fileID: 2042609740}
-  m_RootOrder: 2
+  m_Father: {fileID: 1426069765}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1020639017
 Rigidbody2D:
@@ -1500,22 +1523,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
---- !u!114 &1020639020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1020639014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cded87d97014f3f4dafcec7a5889e53a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 20
-  healthImg: {fileID: 1350056003}
-  healthAmount: {fileID: 878091056}
-  damageClip: {fileID: 8300000, guid: 726ed5b65bad2ae4d8f65838f92c1b3b, type: 3}
-  invincibilityTime: 1.5
 --- !u!82 &1020639021
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1611,18 +1618,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1020639022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1020639014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b58940b2913fdae478637772205de7f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 50
 --- !u!1 &1199815710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,7 +1648,7 @@ Transform:
   - {fileID: 1932730323}
   - {fileID: 1213171190}
   m_Father: {fileID: 2042609740}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1213171189
 GameObject:
@@ -1754,7 +1749,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1296509821}
   m_Layer: 5
-  m_Name: Basic
+  m_Name: BattleOptions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1933,7 +1928,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1426069765
 Transform:
   m_ObjectHideFlags: 0
@@ -1943,7 +1938,9 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 689968128}
+  - {fileID: 1020639016}
   m_Father: {fileID: 2042609740}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2366,7 +2363,7 @@ RectTransform:
   - {fileID: 875254446}
   - {fileID: 234549334}
   m_Father: {fileID: 2042609740}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2523,7 +2520,7 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 2042609740}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1934970065
 MonoBehaviour:
@@ -2662,8 +2659,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1426069765}
-  - {fileID: 689968128}
-  - {fileID: 1020639016}
   - {fileID: 1934970064}
   - {fileID: 1199815711}
   - {fileID: 1862078716}
@@ -2679,6 +2674,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2085682097}
+  - component: {fileID: 2085682098}
+  - component: {fileID: 2085682099}
   m_Layer: 5
   m_Name: PlayerHealth
   m_TagString: Untagged
@@ -2708,6 +2705,34 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &2085682098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2085682096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cded87d97014f3f4dafcec7a5889e53a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 20
+  healthImg: {fileID: 1350056003}
+  healthAmount: {fileID: 878091056}
+  damageClip: {fileID: 8300000, guid: 726ed5b65bad2ae4d8f65838f92c1b3b, type: 3}
+  invincibilityTime: 1.5
+--- !u!114 &2085682099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2085682096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b58940b2913fdae478637772205de7f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
 --- !u!1 &2143622496
 GameObject:
   m_ObjectHideFlags: 0

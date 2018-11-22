@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class BattleManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static BattleManager instance;
 
     public PlayerHealth playerHealth;
     public PlayerDamage playerDamage;
@@ -15,7 +15,12 @@ public class GameManager : MonoBehaviour
     public GameObject battleObj;
     public GameObject gameOver;
 
+    public GameObject battleOptions;
+
     public GameObject fight;
+
+    public GameObject playerMovement;
+    public GameObject playerHealthUI;
 
     private void OnEnable()
     {
@@ -41,6 +46,11 @@ public class GameManager : MonoBehaviour
         StartCoroutine(GameOverCoroutine());
     }
 
+    public void ToggleBattleOptions(bool toggle)
+    {
+        battleOptions.SetActive(toggle);
+    }
+
     public void ToggleFight(bool toggle)
     {
         fight.SetActive(toggle);
@@ -50,5 +60,11 @@ public class GameManager : MonoBehaviour
         {
             attackBar.transform.localPosition = Vector2.left * 3.825f;
         }
+    }
+
+    public void TogglePlayerMovement(bool toggle)
+    {
+        playerMovement.SetActive(toggle);
+        playerHealthUI.SetActive(toggle);
     }
 }

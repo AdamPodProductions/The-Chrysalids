@@ -8,6 +8,6 @@ public class PlayerDamage : MonoBehaviour
 
     public void DamageEnemy()
     {
-        GameManager.instance.enemyHealth.Damage(damage);
+        BattleManager.instance.enemyHealth.Damage(damage);
     }
 }
