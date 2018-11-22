@@ -7,12 +7,22 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public PlayerHealth playerHealth;
+    public PlayerDamage playerDamage;
+    public EnemyHealth enemyHealth;
+
     public GameObject battleObj;
     public GameObject gameOver;
+
+    public GameObject fight;
 
     private void OnEnable()
     {
         instance = this;
+
+        playerHealth = FindObjectOfType<PlayerHealth>();
+        playerDamage = FindObjectOfType<PlayerDamage>();
+        enemyHealth = FindObjectOfType<EnemyHealth>();
     }
 
     private IEnumerator GameOverCoroutine()
@@ -28,5 +38,11 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         StartCoroutine(GameOverCoroutine());
+    }
+
+    public void ToggleFight(bool toggle)
+    {
+        fight.SetActive(toggle);
+        FindObjectOfType<AttackBar>().ToggleMovement(toggle);
     }
 }
