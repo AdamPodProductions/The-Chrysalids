@@ -19,6 +19,7 @@ public class EnemyHealthUI : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         ui.SetActive(false);
+        GameManager.instance.ToggleFight(false);
     }
 
     public void UpdateUI(int damage)

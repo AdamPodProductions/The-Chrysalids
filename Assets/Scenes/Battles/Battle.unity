@@ -492,6 +492,7 @@ MonoBehaviour:
   playerHealth: {fileID: 0}
   playerDamage: {fileID: 0}
   enemyHealth: {fileID: 0}
+  attackBar: {fileID: 1213171192}
   battleObj: {fileID: 2042609739}
   gameOver: {fileID: 233000454}
   fight: {fileID: 1199815710}
@@ -1554,7 +1555,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1213171189}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.825, y: 0, z: 0}
   m_LocalScale: {x: 0.125, y: 1.9, z: 1}
   m_Children:
   - {fileID: 284871682}

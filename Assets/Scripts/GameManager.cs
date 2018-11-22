@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public PlayerHealth playerHealth;
     public PlayerDamage playerDamage;
     public EnemyHealth enemyHealth;
+    public AttackBar attackBar;
 
     public GameObject battleObj;
     public GameObject gameOver;
@@ -43,6 +44,11 @@ public class GameManager : MonoBehaviour
     public void ToggleFight(bool toggle)
     {
         fight.SetActive(toggle);
-        FindObjectOfType<AttackBar>().ToggleMovement(toggle);
+        attackBar.ToggleMovement(toggle);
+
+        if (!toggle)
+        {
+            attackBar.transform.localPosition = Vector2.left * 3.825f;
+        }
     }
 }
