@@ -582,6 +582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 443995243}
   - component: {fileID: 443995244}
+  - component: {fileID: 443995245}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -623,6 +624,17 @@ MonoBehaviour:
   fight: {fileID: 1199815710}
   playerMovement: {fileID: 1426069764}
   playerHealthUI: {fileID: 2085682096}
+--- !u!114 &443995245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 443995242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b369c7d1468be4284d380dad37b450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &595642750
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,7 +774,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 34a238639b2bc684394804a4d70fdd97,
       type: 3}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300000, guid: 34a238639b2bc684394804a4d70fdd97, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1115,7 +1127,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 34a238639b2bc684394804a4d70fdd97,
       type: 3}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300000, guid: 34a238639b2bc684394804a4d70fdd97, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -2229,7 +2241,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: 34a238639b2bc684394804a4d70fdd97,
       type: 3}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300000, guid: 34a238639b2bc684394804a4d70fdd97, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal

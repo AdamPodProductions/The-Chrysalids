@@ -29,6 +29,9 @@ public class BattleManager : MonoBehaviour
         playerHealth = FindObjectOfType<PlayerHealth>();
         playerDamage = FindObjectOfType<PlayerDamage>();
         enemyHealth = FindObjectOfType<EnemyHealth>();
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private IEnumerator GameOverCoroutine()
