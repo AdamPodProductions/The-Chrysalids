@@ -472,6 +472,7 @@ MonoBehaviour:
   battleObj: {fileID: 2042609739}
   gameOver: {fileID: 0}
   battleOptions: {fileID: 234549333}
+  fightButton: {fileID: 728488649}
   fight: {fileID: 1199815710}
   playerMovement: {fileID: 1426069764}
   playerHealthUI: {fileID: 2085682096}
@@ -682,10 +683,6 @@ GameObject:
   m_Component:
   - component: {fileID: 689968128}
   - component: {fileID: 689968127}
-  - component: {fileID: 689968129}
-  - component: {fileID: 689968130}
-  - component: {fileID: 689968131}
-  - component: {fileID: 689968132}
   m_Layer: 8
   m_Name: BattleArena
   m_TagString: Untagged
@@ -752,106 +749,6 @@ Transform:
   m_Father: {fileID: 1426069765}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &689968129
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 689968126}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -1.185, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0.125, y: 0.125, z: 0.125, w: 0.125}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.5, y: 2.5}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.125, y: 2.5}
-  m_EdgeRadius: 0
---- !u!61 &689968130
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 689968126}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.185, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0.125, y: 0.125, z: 0.125, w: 0.125}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.5, y: 2.5}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.125, y: 2.5}
-  m_EdgeRadius: 0
---- !u!61 &689968131
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 689968126}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.185}
-  m_SpriteTilingProperty:
-    border: {x: 0.125, y: 0.125, z: 0.125, w: 0.125}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.5, y: 2.5}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.5, y: 0.125}
-  m_EdgeRadius: 0
---- !u!61 &689968132
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 689968126}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.185}
-  m_SpriteTilingProperty:
-    border: {x: 0.125, y: 0.125, z: 0.125, w: 0.125}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.5, y: 2.5}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.5, y: 0.125}
-  m_EdgeRadius: 0
 --- !u!1 &708438411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,6 +1335,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  xLimits: {x: -1.25, y: 1.25}
+  yLimits: {x: -2.97, y: -1.03}
 --- !u!60 &1020639020
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1948,7 +1847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1426069765
 Transform:
   m_ObjectHideFlags: 0
@@ -2520,7 +2419,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 608d26cbeba3e5e4a8e8ad977e8accb6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2562d5829a5e9647af262441753a861, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2539,7 +2438,7 @@ Transform:
   m_GameObject: {fileID: 1934970062}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1059868765}
   m_Father: {fileID: 2042609740}
@@ -2742,6 +2641,7 @@ MonoBehaviour:
   health: 20
   healthImg: {fileID: 1350056003}
   healthAmount: {fileID: 878091056}
+  test: {fileID: 0}
   damageClip: {fileID: 8300000, guid: 726ed5b65bad2ae4d8f65838f92c1b3b, type: 3}
   invincibilityTime: 1.5
   spriteRenderer: {fileID: 1020639015}

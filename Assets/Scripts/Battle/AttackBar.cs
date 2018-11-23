@@ -42,17 +42,9 @@ public class AttackBar : MonoBehaviour
     private int GetDamageFromPosition()
     {
         int calculatedDamage;
-        calculatedDamage = 50 - Mathf.CeilToInt(Mathf.Abs(transform.position.x) * 10.45f) + 1;
+        int randomMultiplier = Random.Range(0, 3);
 
-        if (calculatedDamage > 50)
-        {
-            calculatedDamage = 50;
-        }
-        else if (calculatedDamage < 0)
-        {
-            calculatedDamage = 0;
-        }
-
+        calculatedDamage = (randomMultiplier == 0) ? 41 : (randomMultiplier == 1) ? 56 : 72 - Mathf.CeilToInt(Mathf.Abs(transform.position.x) * ((randomMultiplier == 0) ? 10.57f : (randomMultiplier == 1) ? 14.43f : 18.56f)) + 1;
         return calculatedDamage;
     }
 

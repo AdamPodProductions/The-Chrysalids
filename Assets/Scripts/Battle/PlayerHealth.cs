@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
 
     public Image healthImg;
     public Text healthAmount;
+    public Button test;
 
     public AudioClip damageClip;
 

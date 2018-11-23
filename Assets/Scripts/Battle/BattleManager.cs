@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class BattleManager : MonoBehaviour
 {
@@ -19,6 +21,7 @@ public class BattleManager : MonoBehaviour
     public GameObject gameOver;
 
     public GameObject battleOptions;
+    public GameObject fightButton;
 
     public GameObject fight;
 
@@ -37,10 +40,19 @@ public class BattleManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    private IEnumerator SelectFightButton()
+    {
+        yield return null;
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(fightButton);
+    }
+
     public void PlayerTurn()
     {
         TogglePlayerMovement(false);
         ToggleBattleOptions(true);
+
+        StartCoroutine(SelectFightButton());
     }
 
     public void EnemyTurn()
