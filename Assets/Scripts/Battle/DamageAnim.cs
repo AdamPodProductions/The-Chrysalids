@@ -6,6 +6,7 @@ public class DamageAnim : MonoBehaviour
 {
     public void AttackEnemy()
     {
+        BattleManager.instance.ToggleFight(false);
         BattleManager.instance.playerDamage.DamageEnemy();
     }
 }

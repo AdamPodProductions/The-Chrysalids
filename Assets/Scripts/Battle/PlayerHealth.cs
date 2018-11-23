@@ -14,26 +14,16 @@ public class PlayerHealth : MonoBehaviour
 
     public float invincibilityTime = 1.5f;
 
-    private bool invincible;
+    public SpriteRenderer spriteRenderer;
+    public AudioSource audioSource;
 
-    private SpriteRenderer spriteRenderer;
-    private AudioSource audioSource;
-
-    private void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        audioSource = GetComponent<AudioSource>();
-    }
+    public bool invincible;
 
     private IEnumerator Invincibility()
     {
-        invincible = true;
-        spriteRenderer.color = Color.gray;
-
+        ToggleInvincibility(true);
         yield return new WaitForSeconds(invincibilityTime);
-
-        invincible = false;
-        spriteRenderer.color = Color.white;
+        ToggleInvincibility(false);
     }
 
     public void SetHealth(int health)
@@ -61,5 +51,11 @@ public class PlayerHealth : MonoBehaviour
                 StartCoroutine(Invincibility());
             }
         }
+    }
+
+    public void ToggleInvincibility(bool toggle)
+    {
+        invincible = toggle;
+        spriteRenderer.color = toggle ? Color.gray : Color.white;
     }
 }

@@ -19,8 +19,7 @@ public class EnemyHealthUI : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         ui.SetActive(false);
-        BattleManager.instance.ToggleFight(false);
-        BattleManager.instance.TogglePlayerMovement(true);
+        BattleManager.instance.EnemyTurn();
     }
 
     public void UpdateUI(int damage)

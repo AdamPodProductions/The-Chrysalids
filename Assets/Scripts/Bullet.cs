@@ -23,9 +23,11 @@ public class Bullet : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            collision.GetComponent<PlayerHealth>().Damage(damage);
+            if (!BattleManager.instance.playerHealth.invincible)
+            {
+                BattleManager.instance.playerHealth.Damage(damage);
+                Destroy(gameObject);
+            }
         }
-
-        Destroy(gameObject);
     }
 }

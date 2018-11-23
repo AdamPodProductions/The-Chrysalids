@@ -10,6 +10,9 @@ public class BattleManager : MonoBehaviour
     public PlayerHealth playerHealth;
     public PlayerDamage playerDamage;
     public EnemyHealth enemyHealth;
+
+    public MonoBehaviour enemyBehaviour;
+
     public AttackBar attackBar;
 
     public GameObject battleObj;
@@ -42,6 +45,21 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void PlayerTurn()
+    {
+        TogglePlayerMovement(false);
+        ToggleBattleOptions(true);
+    }
+
+    public void EnemyTurn()
+    {
+        playerHealth.ToggleInvincibility(false);
+        TogglePlayerMovement(true);
+        ToggleBattleOptions(false);
+        //StartCoroutine(FindObjectOfType<WhiteSquare>().BulletAttack());
+        enemyBehaviour.SendMessage("Attack");
     }
 
     public void GameOver()
