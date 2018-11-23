@@ -8,9 +8,7 @@ public class AttackBar : MonoBehaviour
 
     public GameObject damageAnim;
 
-    public SpriteRenderer spriteRenderer;
-    public Sprite whiteBar;
-    public Sprite blackBar;
+    public Animator animator;
 
     private int direction = 1;
     private bool moving = true;
@@ -34,6 +32,8 @@ public class AttackBar : MonoBehaviour
             {
                 ToggleMovement(false);
                 BattleManager.instance.playerDamage.damage = GetDamageFromPosition();
+
+                animator.SetBool("Flash", true);
                 Instantiate(damageAnim, Vector2.up * 3, Quaternion.identity);
             }
         }
@@ -61,11 +61,7 @@ public class AttackBar : MonoBehaviour
 
         if (toggle)
         {
-            spriteRenderer.sprite = whiteBar;
-        }
-        else
-        {
-            spriteRenderer.sprite = blackBar;
+            animator.SetBool("Flash", false);
         }
     }
 }

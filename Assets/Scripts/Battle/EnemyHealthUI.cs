@@ -10,9 +10,10 @@ public class EnemyHealthUI : MonoBehaviour
     public Text damageText;
     public Image healthImg;
 
-    private IEnumerator UpdateUICoroutine(int damage)
+    private IEnumerator UpdateUIDamageCoroutine(int damage)
     {
         ui.SetActive(true);
+        damageText.color = Color.red;
         damageText.text = damage.ToString();
         healthImg.fillAmount = (BattleManager.instance.enemyHealth.health / BattleManager.instance.enemyHealth.maxHealth) * 1.0f;
 
@@ -22,8 +23,26 @@ public class EnemyHealthUI : MonoBehaviour
         BattleManager.instance.EnemyTurn();
     }
 
-    public void UpdateUI(int damage)
+    private IEnumerator UpdateUIHealCoroutine(int healing)
     {
-        StartCoroutine(UpdateUICoroutine(damage));
+        ui.SetActive(true);
+        damageText.color = Color.green;
+        damageText.text = healing.ToString();
+        healthImg.fillAmount = (BattleManager.instance.enemyHealth.health / BattleManager.instance.enemyHealth.maxHealth) * 1.0f;
+
+        yield return new WaitForSeconds(1);
+
+        ui.SetActive(false);
+        BattleManager.instance.PlayerTurn();
+    }
+
+    public void UpdateUIDamage(int damage)
+    {
+        StartCoroutine(UpdateUIDamageCoroutine(damage));
+    }
+
+    public void UpdateUIHeal(int damage)
+    {
+        StartCoroutine(UpdateUIHealCoroutine(damage));
     }
 }

@@ -12,6 +12,7 @@ public class EnemyHealth : MonoBehaviour
 
     public AudioSource source;
     public AudioClip damageClip;
+    public AudioClip healClip;
 
     private Animator animator;
 
@@ -51,13 +52,22 @@ public class EnemyHealth : MonoBehaviour
         source.PlayOneShot(damageClip);
         StartCoroutine(Shake());
 
-        ui.UpdateUI(damage);
+        ui.UpdateUIDamage(damage);
 
         if (health <= 0)
         {
             BattleManager.instance.StopMusic();
             animator.SetBool("Alive", false);
         }
+    }
+
+    public void Heal(int healing)
+    {
+        SetHealth(health + healing);
+
+        source.PlayOneShot(healClip);
+
+        ui.UpdateUIHeal(healing);
     }
 
     public void LoadWinScene()

@@ -47,9 +47,15 @@ public class WhiteSquare : MonoBehaviour
         BattleManager.instance.PlayerTurn();
     }
 
+    private void Heal()
+    {
+        int healing = Random.Range(20, 40);
+        BattleManager.instance.enemyHealth.Heal(healing);
+    }
+
     public void Attack()
     {
-        int attackIndex = Random.Range(0, 2);
+        int attackIndex = Random.Range(0, 3);
 
         if (attackIndex == 0)
         {
@@ -58,6 +64,10 @@ public class WhiteSquare : MonoBehaviour
         else if (attackIndex == 1)
         {
             StartCoroutine(DirectionalBulletAttack());
+        }
+        else if (attackIndex == 2)
+        {
+            Heal();
         }
     }
 }

@@ -53,6 +53,7 @@ public class BattleManager : MonoBehaviour
     {
         TogglePlayerMovement(false);
         ToggleBattleOptions(true);
+        playerHealthUI.SetActive(true);
 
         StartCoroutine(SelectFightButton());
     }
