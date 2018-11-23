@@ -37,16 +37,6 @@ public class BattleManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private IEnumerator GameOverCoroutine()
-    {
-        gameOver.SetActive(true);
-        battleObj.SetActive(false);
-
-        yield return new WaitForSeconds(3);
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
     public void PlayerTurn()
     {
         TogglePlayerMovement(false);
@@ -58,13 +48,12 @@ public class BattleManager : MonoBehaviour
         playerHealth.ToggleInvincibility(false);
         TogglePlayerMovement(true);
         ToggleBattleOptions(false);
-        //StartCoroutine(FindObjectOfType<WhiteSquare>().BulletAttack());
         enemyBehaviour.SendMessage("Attack");
     }
 
     public void GameOver()
     {
-        StartCoroutine(GameOverCoroutine());
+        SceneManager.LoadScene("GameOver");
     }
 
     public void ToggleBattleOptions(bool toggle)

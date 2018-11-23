@@ -8,6 +8,10 @@ public class AttackBar : MonoBehaviour
 
     public GameObject damageAnim;
 
+    public SpriteRenderer spriteRenderer;
+    public Sprite whiteBar;
+    public Sprite blackBar;
+
     private int direction = 1;
     private bool moving = true;
 
@@ -17,11 +21,11 @@ public class AttackBar : MonoBehaviour
         {
             transform.Translate(Vector2.right * speed * direction * Time.deltaTime);
 
-            if (transform.position.x > 3.825f)
+            if (transform.position.x > 3.88f)
             {
                 direction = -1;
             }
-            else if (transform.position.x < -3.825f)
+            else if (transform.position.x < -3.88f)
             {
                 direction = 1;
             }
@@ -62,5 +66,14 @@ public class AttackBar : MonoBehaviour
     public void ToggleMovement(bool toggle)
     {
         moving = toggle;
+
+        if (toggle)
+        {
+            spriteRenderer.sprite = whiteBar;
+        }
+        else
+        {
+            spriteRenderer.sprite = blackBar;
+        }
     }
 }
