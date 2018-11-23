@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -12,9 +13,13 @@ public class EnemyHealth : MonoBehaviour
     public AudioSource source;
     public AudioClip damageClip;
 
+    private Animator animator;
+
     private void Start()
     {
         maxHealth = health;
+
+        animator = GetComponent<Animator>();
     }
 
     private IEnumerator Shake()
@@ -47,5 +52,16 @@ public class EnemyHealth : MonoBehaviour
         StartCoroutine(Shake());
 
         ui.UpdateUI(damage);
+
+        if (health <= 0)
+        {
+            BattleManager.instance.StopMusic();
+            animator.SetBool("Alive", false);
+        }
+    }
+
+    public void LoadWinScene()
+    {
+        SceneManager.LoadScene(0);
     }
 }

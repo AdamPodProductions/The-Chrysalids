@@ -28,6 +28,8 @@ public class BattleManager : MonoBehaviour
     public GameObject playerMovement;
     public GameObject playerHealthUI;
 
+    public AudioSource musicSource;
+
     private void OnEnable()
     {
         instance = this;
@@ -57,10 +59,13 @@ public class BattleManager : MonoBehaviour
 
     public void EnemyTurn()
     {
-        playerHealth.ToggleInvincibility(false);
-        TogglePlayerMovement(true);
-        ToggleBattleOptions(false);
-        enemyBehaviour.SendMessage("Attack");
+        if (enemyHealth.health > 0)
+        {
+            playerHealth.ToggleInvincibility(false);
+            TogglePlayerMovement(true);
+            ToggleBattleOptions(false);
+            enemyBehaviour.SendMessage("Attack");
+        }
     }
 
     public void GameOver()
@@ -88,5 +93,10 @@ public class BattleManager : MonoBehaviour
     {
         playerMovement.SetActive(toggle);
         playerHealthUI.SetActive(toggle);
+    }
+
+    public void StopMusic()
+    {
+        musicSource.Stop();
     }
 }
