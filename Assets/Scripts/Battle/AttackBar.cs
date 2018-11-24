@@ -41,11 +41,12 @@ public class AttackBar : MonoBehaviour
 
     private int GetDamageFromPosition()
     {
-        int calculatedDamage;
+        float xPos = Mathf.Abs(transform.position.x);
+
+        int areaMultiplier = (xPos < 0.3f) ? 4 : (xPos < 1.39f) ? 3 : (xPos < 3f) ? 2 : 1;
         int randomMultiplier = Random.Range(0, 3);
 
-        calculatedDamage = (randomMultiplier == 0) ? 41 : (randomMultiplier == 1) ? 56 : 72 - Mathf.CeilToInt(Mathf.Abs(transform.position.x) * ((randomMultiplier == 0) ? 10.57f : (randomMultiplier == 1) ? 14.43f : 18.56f)) + 1;
-        return calculatedDamage;
+        return areaMultiplier * ((randomMultiplier == 0) ? 10 : (randomMultiplier == 1) ? 14 : 18);
     }
 
     private IEnumerator DamageAnim()
