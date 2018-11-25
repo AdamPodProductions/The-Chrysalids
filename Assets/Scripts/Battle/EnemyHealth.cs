@@ -25,19 +25,20 @@ public class EnemyHealth : MonoBehaviour
 
     private IEnumerator Shake()
     {
-        transform.position = new Vector2(0.3f, 2);
+        transform.position = new Vector2(transform.position.x + 0.3f, transform.position.y);
         yield return new WaitForSeconds(0.1f);
 
-        transform.position = new Vector2(-0.3f, 2);
+        transform.position = new Vector2(transform.position.x - 0.6f, transform.position.y);
         yield return new WaitForSeconds(0.1f);
 
-        transform.position = new Vector2(0.3f, 2);
+        transform.position = new Vector2(transform.position.x + 0.6f, transform.position.y);
         yield return new WaitForSeconds(0.1f);
 
-        transform.position = new Vector2(-0.3f, 2);
+        transform.position = new Vector2(transform.position.x - 0.6f, transform.position.y);
         yield return new WaitForSeconds(0.1f);
 
-        transform.position = new Vector2(0, 2);
+        transform.position = new Vector2(transform.position.x + 0.3f, transform.position.y);
+        yield return new WaitForSeconds(0.1f);
     }
 
     public void SetHealth(int health)

@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 190113695}
   - component: {fileID: 190113697}
   - component: {fileID: 190113696}
+  - component: {fileID: 190113698}
   m_Layer: 5
   m_Name: HealthAmount
   m_TagString: Untagged
@@ -325,6 +326,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 190113694}
   m_CullTransparentMesh: 0
+--- !u!114 &190113698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 190113694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1.5, y: 1.5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &218656831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,7 +1254,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Rock
+  m_Text: Nikita
 --- !u!222 &860882213
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1746,9 +1761,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1059868764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd47bafff79594e449a6fa7debf97090, type: 3}
+  m_Script: {fileID: 11500000, guid: 19775b401199fe842aa9bfce8c5a10d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dipshit: {fileID: 1506040307047496, guid: 4621c14ecf746e54fa2ee5711405fce9, type: 2}
+  juice: {fileID: 1059675930923920, guid: 20cfbebb42ec71a4eb0401657958ec69, type: 2}
+  player: {fileID: 1020639016}
 --- !u!1 &1199815710
 GameObject:
   m_ObjectHideFlags: 0
@@ -2608,8 +2626,8 @@ GameObject:
   - component: {fileID: 1934970064}
   - component: {fileID: 1934970063}
   - component: {fileID: 1934970066}
-  - component: {fileID: 1934970067}
   - component: {fileID: 1934970065}
+  - component: {fileID: 1934970067}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -2652,7 +2670,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 7585f0cd7e1d57a468c66839f7e3452e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b6a30563a69ae2e438e9ef402f2623cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2670,8 +2688,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1934970062}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.92, y: 2.5, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 1059868765}
   m_Father: {fileID: 2042609740}
@@ -2688,7 +2706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf085f1b8b8f44c4687c0fceaf270135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 60
+  health: 200
   maxHealth: 0
   ui: {fileID: 875254447}
   source: {fileID: 1934970066}

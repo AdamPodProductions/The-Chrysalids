@@ -2608,8 +2608,8 @@ GameObject:
   - component: {fileID: 1934970064}
   - component: {fileID: 1934970063}
   - component: {fileID: 1934970066}
-  - component: {fileID: 1934970067}
   - component: {fileID: 1934970065}
+  - component: {fileID: 1934970067}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -2688,7 +2688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf085f1b8b8f44c4687c0fceaf270135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 60
+  health: 200
   maxHealth: 0
   ui: {fileID: 875254447}
   source: {fileID: 1934970066}

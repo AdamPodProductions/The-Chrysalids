@@ -9,7 +9,7 @@ public class WhiteSquare : MonoBehaviour
 
     private void SpawnBullet()
     {
-        Instantiate(bullet, new Vector2(player.position.x + Random.Range(-1, 1), 1.15f), Quaternion.identity);
+        Instantiate(bullet, new Vector2(player.position.x + Random.Range(-1, 1), 1.15f), bullet.transform.rotation);
     }
 
     private void SpawnDirectionalBullet()
