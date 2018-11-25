@@ -9,9 +9,15 @@ public class Nikita : MonoBehaviour
 
     public Transform player;
 
-    private void SpawnBullet()
+    private void SpawnDipshit()
     {
-        Instantiate(dipshit, new Vector2(player.position.x + Random.Range(-1, 1), 1.15f), dipshit.transform.rotation);
+        int xPos = Random.Range(0, 2);
+        Bullet bullet = Instantiate(dipshit, new Vector2((xPos == 0) ? -3 : 3, player.position.x + Random.Range(-1, -3)), dipshit.transform.rotation).GetComponent<Bullet>();
+
+        if (xPos == 1)
+        {
+            bullet.direction *= -1;
+        }
     }
 
     private IEnumerator DipshitAttack()
@@ -19,7 +25,7 @@ public class Nikita : MonoBehaviour
         for (int i = 0; i < 20; i++)
         {
             yield return new WaitForSeconds(0.35f);
-            SpawnBullet();
+            SpawnDipshit();
         }
 
         yield return new WaitForSeconds(4f);
