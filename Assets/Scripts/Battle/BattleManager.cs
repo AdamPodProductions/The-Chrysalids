@@ -12,13 +12,13 @@ public class BattleManager : MonoBehaviour
     public PlayerHealth playerHealth;
     public PlayerDamage playerDamage;
     public EnemyHealth enemyHealth;
+    public EnemyTextBox enemyTextBox;
 
     public MonoBehaviour enemyBehaviour;
 
     public AttackBar attackBar;
 
     public GameObject battleObj;
-    public GameObject gameOver;
 
     public GameObject battleOptions;
     public GameObject fightButton;
@@ -66,6 +66,7 @@ public class BattleManager : MonoBehaviour
             TogglePlayerMovement(true);
             ToggleBattleOptions(false);
             enemyBehaviour.SendMessage("Attack");
+            enemyTextBox.SayRandomText();
         }
     }
 

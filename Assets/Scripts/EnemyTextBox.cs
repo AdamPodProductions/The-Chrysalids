@@ -3,37 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyTextBox : MonoBehaviour
+public class EnemyTextBox : TextBox
 {
     public string[] textToSay;
-    public float lettersPerSec;
 
-    public GameObject textBox;
-    public Text text;
+    private int currentIndex;
+    private int previousIndex = -1;
 
-    private void Start()
+    private void PickDifferentText()
     {
-        Say();
-    }
+        currentIndex = Random.Range(0, textToSay.Length);
 
-    private IEnumerator SayCoroutine()
-    {
-        string currentString = textToSay[Random.Range(0, textToSay.Length)];
-
-        for (int i = 0; i < currentString.Length; i++)
+        if (currentIndex == previousIndex)
         {
-            text.text += currentString[i];
-            yield return new WaitForSeconds(1f / lettersPerSec);
+            PickDifferentText();
         }
 
-        yield return new WaitForSeconds(1);
-
-        textBox.SetActive(false);
+        SayText(textToSay[currentIndex], 15, 2);
     }
 
-    public void Say()
+    public void SayRandomText()
     {
-        textBox.SetActive(true);
-        StartCoroutine(SayCoroutine());
+        currentIndex = Random.Range(0, textToSay.Length);
+
+        if (textToSay.Length > 1)
+        {
+            if (currentIndex == previousIndex)
+            {
+                PickDifferentText();
+            }
+            else
+            {
+                SayText(textToSay[currentIndex], 15, 2);
+                previousIndex = currentIndex;
+            }
+        }
     }
 }

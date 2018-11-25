@@ -12,7 +12,7 @@ public class Nikita : MonoBehaviour
     private void SpawnDipshit()
     {
         int xPos = Random.Range(0, 2);
-        Bullet bullet = Instantiate(dipshit, new Vector2((xPos == 0) ? -3 : 3, player.position.x + Random.Range(-1, -3)), dipshit.transform.rotation).GetComponent<Bullet>();
+        Bullet bullet = Instantiate(dipshit, new Vector2((xPos == 0) ? -3 : 3, player.position.y + Random.Range(-0.5f, 0.5f)), dipshit.transform.rotation).GetComponent<Bullet>();
 
         if (xPos == 1)
         {
@@ -28,7 +28,7 @@ public class Nikita : MonoBehaviour
             SpawnDipshit();
         }
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5f);
         BattleManager.instance.PlayerTurn();
     }
 
