@@ -445,11 +445,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1862078716}
     m_Modifications:
-    - target: {fileID: 114528104629652320, guid: ba416ec0746b7c5458fa4490b1d31166,
-        type: 2}
-      propertyPath: textToSay.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4389687454118700, guid: ba416ec0746b7c5458fa4490b1d31166, type: 2}
       propertyPath: m_LocalPosition.x
       value: 400
@@ -481,21 +476,6 @@ Prefab:
     - target: {fileID: 4389687454118700, guid: ba416ec0746b7c5458fa4490b1d31166, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528104629652320, guid: ba416ec0746b7c5458fa4490b1d31166,
-        type: 2}
-      propertyPath: textToSay.Array.data[0]
-      value: Feminists are EWww
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528104629652320, guid: ba416ec0746b7c5458fa4490b1d31166,
-        type: 2}
-      propertyPath: textToSay.Array.data[1]
-      value: Hey diPShiT, call me back
-      objectReference: {fileID: 0}
-    - target: {fileID: 114528104629652320, guid: ba416ec0746b7c5458fa4490b1d31166,
-        type: 2}
-      propertyPath: textToSay.Array.data[2]
-      value: Wanna make alcoholic oRAngE JuICe?
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba416ec0746b7c5458fa4490b1d31166, type: 2}
