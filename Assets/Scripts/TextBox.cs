@@ -8,6 +8,8 @@ public class TextBox : MonoBehaviour
     public GameObject textBox;
     public Text text;
 
+    private Coroutine lastCoroutine;
+
     private IEnumerator SayTextCoroutine(string text, float lettersPerSec, float timeUntilBoxDisables)
     {
         float waitTime = 1f / lettersPerSec;
@@ -80,27 +82,31 @@ public class TextBox : MonoBehaviour
 
     public void SayText(string text, float lettersPerSec, float timeUntilBoxDisables)
     {
-        StartCoroutine(SayTextCoroutine(text, lettersPerSec, timeUntilBoxDisables));
+        lastCoroutine = StartCoroutine(SayTextCoroutine(text, lettersPerSec, timeUntilBoxDisables));
     }
 
     public void SayText(string text, float lettersPerSec, System.Func<bool> conditionToDisableBox)
     {
-        StartCoroutine(SayTextCoroutine(text, lettersPerSec, conditionToDisableBox));
+        lastCoroutine = StartCoroutine(SayTextCoroutine(text, lettersPerSec, conditionToDisableBox));
     }
 
     public void SayText(string text, float lettersPerSec, float timeUntilBoxDisables, Items.EnemyTurnAfterItem enemyTurnAfterItem)
     {
-        StartCoroutine(SayTextCoroutine(text, lettersPerSec, timeUntilBoxDisables, enemyTurnAfterItem));
+        lastCoroutine = StartCoroutine(SayTextCoroutine(text, lettersPerSec, timeUntilBoxDisables, enemyTurnAfterItem));
     }
 
     public void SayText(string text, float lettersPerSec, System.Func<bool> conditionToDisableBox, Items.EnemyTurnAfterItem enemyTurnAfterItem)
     {
-        StartCoroutine(SayTextCoroutine(text, lettersPerSec, conditionToDisableBox, enemyTurnAfterItem));
+        lastCoroutine = StartCoroutine(SayTextCoroutine(text, lettersPerSec, conditionToDisableBox, enemyTurnAfterItem));
     }
 
     public void HideTextBox()
     {
-        StopCoroutine("SayTextCoroutine");
+        if (lastCoroutine != null)
+        {
+            StopCoroutine(lastCoroutine);
+        }
+
         textBox.SetActive(false);
     }
 }
