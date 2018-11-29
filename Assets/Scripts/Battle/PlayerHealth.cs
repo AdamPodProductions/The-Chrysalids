@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public Button test;
 
     public AudioClip damageClip;
+    public AudioClip healClip;
 
     public float invincibilityTime = 1.5f;
 
@@ -30,6 +31,15 @@ public class PlayerHealth : MonoBehaviour
     public void SetHealth(int health)
     {
         this.health = health;
+
+        if (health > 20)
+        {
+            health = 20;
+        }
+        else if (health < 0)
+        {
+            health = 0;
+        }
 
         healthImg.fillAmount = health / 20f;
         healthAmount.text = health + "/20";
@@ -52,6 +62,14 @@ public class PlayerHealth : MonoBehaviour
                 StartCoroutine(Invincibility());
             }
         }
+    }
+
+    public void Heal(int healing)
+    {
+        SetHealth(health + healing);
+
+        audioSource.PlayOneShot(healClip);
+        StartCoroutine(Invincibility());
     }
 
     public void ToggleInvincibility(bool toggle)
