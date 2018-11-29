@@ -28,17 +28,17 @@ public class PlayerHealth : MonoBehaviour
         ToggleInvincibility(false);
     }
 
-    public void SetHealth(int health)
+    public void SetHealth(int newHealth)
     {
-        this.health = health;
+        health = newHealth;
 
-        if (this.health > 20)
+        if (health > 20)
         {
-            this.health = 20;
+            health = 20;
         }
-        if (this.health < 0)
+        if (health < 0)
         {
-            this.health = 0;
+            health = 0;
             BattleManager.instance.GameOver();
         }
 
