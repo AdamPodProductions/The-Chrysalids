@@ -22,7 +22,7 @@ public class TextBox : MonoBehaviour
         }
 
         yield return new WaitForSeconds(timeUntilBoxDisables);
-        textBox.SetActive(false);
+        HideTextBox();
     }
 
     private IEnumerator SayTextCoroutine(string text, float lettersPerSec, System.Func<bool> conditionToDisableBox)
@@ -39,7 +39,7 @@ public class TextBox : MonoBehaviour
         }
 
         yield return new WaitUntil(conditionToDisableBox);
-        textBox.SetActive(false);
+        HideTextBox();
     }
 
     public void SayText(string text, float lettersPerSec, float timeUntilBoxDisables)
@@ -50,5 +50,11 @@ public class TextBox : MonoBehaviour
     public void SayText(string text, float lettersPerSec, System.Func<bool> conditionToDisableBox)
     {
         StartCoroutine(SayTextCoroutine(text, lettersPerSec, conditionToDisableBox));
+    }
+
+    public void HideTextBox()
+    {
+        StopCoroutine("SayTextCoroutine");
+        textBox.SetActive(false);
     }
 }

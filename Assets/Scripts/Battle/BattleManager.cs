@@ -22,6 +22,7 @@ public class BattleManager : MonoBehaviour
 
     public GameObject battleOptions;
     public GameObject fightButton;
+    public TextBox textBox;
 
     public GameObject fight;
 
@@ -40,6 +41,8 @@ public class BattleManager : MonoBehaviour
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        PlayerTurn();
     }
 
     private IEnumerator SelectFightButton()
@@ -56,6 +59,8 @@ public class BattleManager : MonoBehaviour
         playerHealthUI.SetActive(true);
 
         StartCoroutine(SelectFightButton());
+
+        textBox.SayText("This is a test. Do not be alarmed. This is just a drill.", 15, () => Input.GetKeyDown(KeyCode.Space));
     }
 
     public void EnemyTurn()
@@ -82,6 +87,8 @@ public class BattleManager : MonoBehaviour
 
     public void ToggleFight(bool toggle)
     {
+        textBox.HideTextBox();
+
         fight.SetActive(toggle);
         attackBar.ToggleMovement(toggle);
 
