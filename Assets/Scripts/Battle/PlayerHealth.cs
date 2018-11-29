@@ -32,22 +32,18 @@ public class PlayerHealth : MonoBehaviour
     {
         this.health = health;
 
-        if (health > 20)
+        if (this.health > 20)
         {
-            health = 20;
+            this.health = 20;
         }
-        else if (health < 0)
+        if (this.health < 0)
         {
-            health = 0;
+            this.health = 0;
+            BattleManager.instance.GameOver();
         }
 
         healthImg.fillAmount = health / 20f;
         healthAmount.text = health + "/20";
-
-        if (health <= 0)
-        {
-            BattleManager.instance.GameOver();
-        }
     }
 
     public void Damage(int damage)
@@ -69,7 +65,6 @@ public class PlayerHealth : MonoBehaviour
         SetHealth(health + healing);
 
         audioSource.PlayOneShot(healClip);
-        StartCoroutine(Invincibility());
     }
 
     public void ToggleInvincibility(bool toggle)

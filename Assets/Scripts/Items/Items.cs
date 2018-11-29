@@ -19,14 +19,12 @@ public class Items : MonoBehaviour
     private void Start()
     {
         enemyTurnAfterItem = BattleManager.instance.EnemyTurn;
+
+        CreateButtons();
     }
 
-    public void ShowItems()
+    private void CreateButtons()
     {
-        BattleManager.instance.textBox.HideTextBox();
-        itemsFrame.SetActive(true);
-
-        itemButtons = new List<ItemHolder>();
         for (int i = 0; i < items.Length; i++)
         {
             ItemHolder spawnedItemHolder = Instantiate(itemPrefab, itemsFrame.transform).GetComponent<ItemHolder>();
@@ -35,23 +33,29 @@ public class Items : MonoBehaviour
             itemButtons[i].GetComponent<Text>().text = "*" + items[i].name;
             itemButtons[i].GetComponent<ItemHolder>().item = items[i];
         }
+    }
 
-        EventSystem.current.SetSelectedGameObject(itemButtons[0].gameObject);
+    public void ShowItems()
+    {
+        if (itemButtons.Count > 0)
+        {
+            BattleManager.instance.textBox.HideTextBox();
+            BattleManager.instance.ToggleBattleOptions(false);
+
+            itemsFrame.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(itemButtons[0].gameObject);
+        }
     }
 
     public void HideItems()
     {
         itemsFrame.SetActive(false);
-
-        foreach (ItemHolder itemHolder in itemButtons)
-        {
-            Destroy(itemHolder.gameObject);
-        }
     }
 
     public void UseItem(ItemHolder itemHolder)
     {
         itemButtons.Remove(itemHolder);
+        Destroy(itemHolder.gameObject);
         BattleManager.instance.playerHealth.Heal(itemHolder.item.healing);
 
         HideItems();
