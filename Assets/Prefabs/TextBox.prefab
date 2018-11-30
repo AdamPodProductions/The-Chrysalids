@@ -44,7 +44,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1889762767041282
 GameObject:
   m_ObjectHideFlags: 0
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4218650303004936}
-  - component: {fileID: 114516346971555612}
+  - component: {fileID: 114658023110959116}
   m_Layer: 0
   m_Name: TextBox
   m_TagString: Untagged
@@ -96,11 +96,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: ee8ec0df09e75b745b4fb5daff77aa88, type: 3}
-    m_FontSize: 24
+    m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 43
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -108,7 +108,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
---- !u!114 &114516346971555612
+--- !u!114 &114658023110959116
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,15 +116,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1889762767041282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeb967527ce5fca42967d43bd0c5db51, type: 3}
+  m_Script: {fileID: 11500000, guid: ef3dc6c7266bb604196ea8f9bf04a7d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1576872124848992}
   text: {fileID: 114162682862115242}
-  textToSay:
-  - Hey diPshIt, call me
-  - Feminists are EWww
-  - Wanna make alCohOlIc oRAnGe jUicE?
 --- !u!114 &114960300461505932
 MonoBehaviour:
   m_ObjectHideFlags: 1

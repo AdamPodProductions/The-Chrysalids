@@ -49,7 +49,7 @@ public class WhiteSquare : MonoBehaviour
 
     public void Attack()
     {
-        int attackIndex = Random.Range(0, 3);
+        int attackIndex = Random.Range(0, 2);
 
         if (attackIndex == 0)
         {
