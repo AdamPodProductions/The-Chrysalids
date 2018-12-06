@@ -9,6 +9,8 @@ public class BattleManager : MonoBehaviour
 {
     public static BattleManager instance;
 
+    public string textToSay = "You are fighting an enemy.";
+
     public PlayerHealth playerHealth;
     public PlayerDamage playerDamage;
     public EnemyHealth enemyHealth;
@@ -60,7 +62,7 @@ public class BattleManager : MonoBehaviour
 
         StartCoroutine(SelectFightButton());
 
-        textBox.SayText("This is a test. Do not be alarmed. This is just a drill.", 15, () => Input.GetKeyDown(KeyCode.Space));
+        textBox.SayText(textToSay, 15, () => Input.GetKeyDown(KeyCode.Space));
     }
 
     public void EnemyTurn()
