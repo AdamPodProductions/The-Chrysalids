@@ -11,14 +11,13 @@ public class Items : MonoBehaviour
 
     public Item[] items;
 
-    public delegate void EnemyTurnAfterItem();
-    public EnemyTurnAfterItem enemyTurnAfterItem;
+    public TextBox.Action action;
 
     private List<ItemHolder> itemButtons = new List<ItemHolder>();
 
     private void Start()
     {
-        enemyTurnAfterItem = BattleManager.instance.EnemyTurn;
+        action = BattleManager.instance.EnemyTurn;
 
         CreateButtons();
     }
@@ -59,6 +58,6 @@ public class Items : MonoBehaviour
         BattleManager.instance.playerHealth.Heal(itemHolder.item.healing);
 
         HideItems();
-        BattleManager.instance.textBox.SayText(itemHolder.item.name + " healed " + itemHolder.item.healing + " HP.", 15, 2, enemyTurnAfterItem);
+        BattleManager.instance.textBox.SayText(itemHolder.item.name + " healed " + itemHolder.item.healing + " HP.", 15, 2, action);
     }
 }

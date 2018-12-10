@@ -8,6 +8,8 @@ public class TextBox : MonoBehaviour
     public GameObject textBox;
     public Text text;
 
+    public delegate void Action();
+
     private Coroutine lastCoroutine;
 
     private IEnumerator SayTextCoroutine(string text, float lettersPerSec, float timeUntilBoxDisables)
@@ -44,7 +46,7 @@ public class TextBox : MonoBehaviour
         HideTextBox();
     }
 
-    private IEnumerator SayTextCoroutine(string text, float lettersPerSec, float timeUntilBoxDisables, Items.EnemyTurnAfterItem enemyTurnAfterItem)
+    private IEnumerator SayTextCoroutine(string text, float lettersPerSec, float timeUntilBoxDisables, Action action)
     {
         float waitTime = 1f / lettersPerSec;
 
@@ -58,11 +60,11 @@ public class TextBox : MonoBehaviour
         }
 
         yield return new WaitForSeconds(timeUntilBoxDisables);
-        enemyTurnAfterItem();
         HideTextBox();
+        action();
     }
 
-    private IEnumerator SayTextCoroutine(string text, float lettersPerSec, System.Func<bool> conditionToDisableBox, Items.EnemyTurnAfterItem enemyTurnAfterItem)
+    private IEnumerator SayTextCoroutine(string text, float lettersPerSec, System.Func<bool> conditionToDisableBox, Action action)
     {
         float waitTime = 1f / lettersPerSec;
 
@@ -76,8 +78,8 @@ public class TextBox : MonoBehaviour
         }
 
         yield return new WaitUntil(conditionToDisableBox);
-        enemyTurnAfterItem();
         HideTextBox();
+        action();
     }
 
     public void SayText(string text, float lettersPerSec, float timeUntilBoxDisables)
@@ -90,14 +92,14 @@ public class TextBox : MonoBehaviour
         lastCoroutine = StartCoroutine(SayTextCoroutine(text, lettersPerSec, conditionToDisableBox));
     }
 
-    public void SayText(string text, float lettersPerSec, float timeUntilBoxDisables, Items.EnemyTurnAfterItem enemyTurnAfterItem)
+    public void SayText(string text, float lettersPerSec, float timeUntilBoxDisables, Action action)
     {
-        lastCoroutine = StartCoroutine(SayTextCoroutine(text, lettersPerSec, timeUntilBoxDisables, enemyTurnAfterItem));
+        lastCoroutine = StartCoroutine(SayTextCoroutine(text, lettersPerSec, timeUntilBoxDisables, action));
     }
 
-    public void SayText(string text, float lettersPerSec, System.Func<bool> conditionToDisableBox, Items.EnemyTurnAfterItem enemyTurnAfterItem)
+    public void SayText(string text, float lettersPerSec, System.Func<bool> conditionToDisableBox, Action action)
     {
-        lastCoroutine = StartCoroutine(SayTextCoroutine(text, lettersPerSec, conditionToDisableBox, enemyTurnAfterItem));
+        lastCoroutine = StartCoroutine(SayTextCoroutine(text, lettersPerSec, conditionToDisableBox, action));
     }
 
     public void HideTextBox()
