@@ -11,21 +11,30 @@ public class TalkingTextBox : TextBox
     private bool loadLevel = false;
     private string levelToLoad = "";
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Say();
+        }
+    }
+
     public void Say()
     {
-        Action action;
+        Action action = Say;
+        action += PlayerMovement.instance.PlayerCanMove;
         string currentString = "";
+
+        PlayerMovement.instance.canMove = false;
 
         if (currentIndex < textToSay.Length)
         {
             currentString = textToSay[currentIndex];
             currentIndex++;
-            action = Say;
         }
         else
         {
             currentIndex = 0;
-            action = Say;
 
             if (loadLevel)
             {
@@ -43,7 +52,7 @@ public class TalkingTextBox : TextBox
     {
         Action action = Say;
         currentIndex++;
-        action = Say;
+        action += PlayerMovement.instance.PlayerCanMove;
 
         this.levelToLoad = levelToLoad;
         loadLevel = true;
