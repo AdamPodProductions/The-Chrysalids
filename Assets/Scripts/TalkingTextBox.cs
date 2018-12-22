@@ -11,14 +11,6 @@ public class TalkingTextBox : TextBox
     private bool loadLevel = false;
     private string levelToLoad = "";
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Say();
-        }
-    }
-
     public void Say()
     {
         Action action = Say;
