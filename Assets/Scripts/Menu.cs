@@ -11,7 +11,10 @@ public class Menu : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+    }
 
+    public void SelectPlayButton()
+    {
         EventSystem.current.SetSelectedGameObject(playButton);
     }
 }
