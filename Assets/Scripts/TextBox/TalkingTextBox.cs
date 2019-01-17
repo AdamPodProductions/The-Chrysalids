@@ -6,16 +6,24 @@ using UnityEngine.SceneManagement;
 public class TalkingTextBox : TextBox
 {
     public string[] textToSay;
+    public string levelToLoad = "";
 
     public int currentIndex = 0;
     private bool loadLevel = false;
-    private string levelToLoad = "";
+
+    private void LoadLevel()
+    {
+        SceneManager.LoadScene(levelToLoad, LoadSceneMode.Single);
+    }
 
     public void Say()
     {
         Action action = Say;
         action += PlayerMovement.instance.PlayerCanMove;
         string currentString = "";
+
+        if (levelToLoad != "")
+            action += LoadLevel;
 
         PlayerMovement.instance.canMove = false;
 

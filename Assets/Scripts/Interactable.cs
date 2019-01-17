@@ -5,6 +5,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     public string[] textToSay;
+    public string levelToLoad;
 
     private TalkingTextBox talkingTextBox;
 
@@ -16,6 +17,7 @@ public class Interactable : MonoBehaviour
     public void Interact()
     {
         talkingTextBox.textToSay = textToSay;
+        talkingTextBox.levelToLoad = levelToLoad;
         talkingTextBox.Say();
     }
 }
