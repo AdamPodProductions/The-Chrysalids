@@ -8,6 +8,8 @@ public class TextBox : MonoBehaviour
     public GameObject textBox;
     public Text text;
 
+    public bool talking;
+
     public delegate void Action();
 
     private Coroutine lastCoroutine;
@@ -18,6 +20,7 @@ public class TextBox : MonoBehaviour
 
         textBox.SetActive(true);
         this.text.text = "";
+        talking = true;
 
         for (int i = 0; i < text.Length; i++)
         {
@@ -35,6 +38,7 @@ public class TextBox : MonoBehaviour
 
         textBox.SetActive(true);
         this.text.text = "";
+        talking = true;
 
         for (int i = 0; i < text.Length; i++)
         {
@@ -52,6 +56,7 @@ public class TextBox : MonoBehaviour
 
         textBox.SetActive(true);
         this.text.text = "";
+        talking = true;
 
         for (int i = 0; i < text.Length; i++)
         {
@@ -70,6 +75,7 @@ public class TextBox : MonoBehaviour
 
         textBox.SetActive(true);
         this.text.text = "";
+        talking = true;
 
         for (int i = 0; i < text.Length; i++)
         {
@@ -109,6 +115,7 @@ public class TextBox : MonoBehaviour
             StopCoroutine(lastCoroutine);
         }
 
+        talking = false;
         textBox.SetActive(false);
     }
 }
