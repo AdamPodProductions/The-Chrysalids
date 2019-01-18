@@ -19,6 +19,9 @@ EditorBuildSettings:
     guid: aa77e6f15630d0545962df221ba0fd42
   - enabled: 1
     path: Assets/Scenes/Levels/Level_002.unity
+    guid: 46a3ec0a8fd0ff34ba4aed28c172e3d5
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level_003.unity
     guid: 956272fac58005746a998f241a0135a0
   - enabled: 1
     path: Assets/Scenes/Battles/Battle.unity
