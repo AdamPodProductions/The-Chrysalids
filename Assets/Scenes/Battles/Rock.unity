@@ -1392,6 +1392,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd47bafff79594e449a6fa7debf97090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rubble: {fileID: 1455529228836188, guid: 5cafafe43954db647b58d769f8bf679f, type: 2}
+  player: {fileID: 1020639016}
 --- !u!1001 &1172276229
 Prefab:
   m_ObjectHideFlags: 0

@@ -73,6 +73,6 @@ public class EnemyHealth : MonoBehaviour
 
     public void LoadWinScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Level_004");
     }
 }
