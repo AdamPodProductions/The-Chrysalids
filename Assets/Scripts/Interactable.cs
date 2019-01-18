@@ -17,7 +17,6 @@ public class Interactable : MonoBehaviour
     public void Interact()
     {
         talkingTextBox.textToSay = textToSay;
-        talkingTextBox.levelToLoad = levelToLoad;
-        talkingTextBox.Say();
+        talkingTextBox.Say(levelToLoad);
     }
 }

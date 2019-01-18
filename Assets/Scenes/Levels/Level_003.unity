@@ -1612,9 +1612,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1326349255}
   - component: {fileID: 1326349256}
+  - component: {fileID: 1326349257}
+  - component: {fileID: 1326349258}
   m_Layer: 0
   m_Name: HouseCollider
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1665,6 +1667,46 @@ PolygonCollider2D:
       - {x: -5.0066857, y: -1.8305908}
       - {x: -2.2733154, y: -1.7980392}
       - {x: -2.2609465, y: -0.666819}
+--- !u!61 &1326349257
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1326349254}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -4.13, y: -1.37}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.86, y: 1.54}
+  m_EdgeRadius: 0
+--- !u!114 &1326349258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1326349254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c65506c3508d8d47ba0b109715d7c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToSay:
+  - '*Knock, knock, knock*'
+  - No one answered
+  levelToLoad: 
 --- !u!1 &1408077793
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,7 +1928,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d803fdc5c316f0140b239fff7c25316b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a120a8eba5fff8b4fadcf2a1d2e2e0c9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.7
   m_Pitch: 1

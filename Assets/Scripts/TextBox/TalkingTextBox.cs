@@ -9,7 +9,6 @@ public class TalkingTextBox : TextBox
     public string levelToLoad = "";
 
     public int currentIndex = 0;
-    private bool loadLevel = false;
 
     private void LoadLevel()
     {
@@ -19,7 +18,7 @@ public class TalkingTextBox : TextBox
     public void Say()
     {
         Action action = Say;
-        action += PlayerMovement.instance.PlayerCanMove;
+        //action += PlayerMovement.instance.PlayerCanMove;
         string currentString = "";
 
         if (levelToLoad != "")
@@ -35,10 +34,10 @@ public class TalkingTextBox : TextBox
         else
         {
             currentIndex = 0;
+            PlayerMovement.instance.PlayerCanMove();
 
-            if (loadLevel)
+            if (levelToLoad != "")
             {
-                loadLevel = false;
                 SceneManager.LoadScene(levelToLoad, LoadSceneMode.Single);
             }
 
@@ -52,10 +51,10 @@ public class TalkingTextBox : TextBox
     {
         Action action = Say;
         currentIndex++;
-        action += PlayerMovement.instance.PlayerCanMove;
+        PlayerMovement.instance.canMove = false;
+        //action += PlayerMovement.instance.PlayerCanMove;
 
         this.levelToLoad = levelToLoad;
-        loadLevel = true;
 
         SayText(textToSay[0], 15, () => Input.GetKeyDown(KeyCode.Space), action);
     }
