@@ -18,8 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level_001.unity
     guid: aa77e6f15630d0545962df221ba0fd42
   - enabled: 1
-    path: Assets/Scenes/Battles/Rock.unity
-    guid: 1f81d29026bb7b84f89325d538ad6c4c
+    path: Assets/Scenes/Levels/Level_002.unity
+    guid: 956272fac58005746a998f241a0135a0
   - enabled: 1
     path: Assets/Scenes/Battles/Battle.unity
     guid: d1cd112464e098746854d39b9701e228
